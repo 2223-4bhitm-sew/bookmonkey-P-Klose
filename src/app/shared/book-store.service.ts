@@ -1,15 +1,11 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import { Book } from '../shared/book';
+import { Injectable } from '@angular/core';
+import {Book} from "./book";
 
-@Component({
-  selector: 'bm-book-list',
-  templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class BookListComponent {
-
-  @Output() selectBook = new EventEmitter<Book>();
-  books: Book[] = [];
+export class BookStoreService {
+  private books: Book[] = [];
   constructor() {
     this.books = [
       {
@@ -33,8 +29,7 @@ export class BookListComponent {
     ];
   }
 
-  doSelect(book: Book) {
-    this.selectBook.emit(book)
+  getAll(): Book[] {
+    return this.books;
   }
-
 }
