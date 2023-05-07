@@ -22,7 +22,5 @@
   <img *ngIf="book.thumbnailUrl"
        [src]="book.thumbnailUrl"
        alt="Cover">
-  <button class="arrow-left" (click)="doLeave()">
-    Back to list
-  </button>
+  <a class="button" routerLink="..">Back to list</a>
 </div>

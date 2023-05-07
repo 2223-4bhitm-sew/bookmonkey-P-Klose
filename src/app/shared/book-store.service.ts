@@ -5,6 +5,7 @@ import {Book} from "./book";
   providedIn: 'root'
 })
 export class BookStoreService {
+  //private apiUrl = 'https://api5.angular-buch.com';
   private books: Book[] = [];
   constructor() {
     this.books = [
@@ -31,5 +32,8 @@ export class BookStoreService {
 
   getAll(): Book[] {
     return this.books;
+  }
+  getSingle(isbn: string): Book | undefined {
+    return this.books.find(book => book.isbn === isbn);
   }
 }
